@@ -4,6 +4,10 @@ body {
   color: #415162;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 /* -------------------------------------------------------------------------- */
 /* APP                                                                        */
 /* -------------------------------------------------------------------------- */
@@ -18,7 +22,7 @@ body {
   background: #fff;
 }
 
-.contents h1, 
+.contents h1,
 .contents p {
   margin-top: 0;
 }
@@ -32,7 +36,7 @@ body {
 }
 
 .button__translation {
-  cursor: pointer;  
+  cursor: pointer;
   margin-bottom: 20px;
   border: 1px solid #415162;
   border-radius: 4px;
@@ -61,17 +65,16 @@ body {
     flex-flow: row;
     margin: 4rem;
   }
-  
+
   .contents {
     flex: 1;
     margin-right: 4rem;
   }
-  
+
   .button__translation {
     margin-bottom: 0;
   }
 }
-
 
 /* -------------------------------------------------------------------------- */
 /* IE NOTICE                                                                  */
