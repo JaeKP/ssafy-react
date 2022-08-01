@@ -1,12 +1,4 @@
-const logger = (message, cssCode) => {
-  console.log(`%c${message}`, cssCode);
-};
-
-const formatText = (text) =>
-  text
-    .toString()
-    .replace(/(\n|;\s+)/g, ($1) => ($1.includes(';') ? ';' : $1))
-    .trim();
+import { logger, formatText } from './utils';
 
 logger(
   '안녕! 웹팩 😃',
