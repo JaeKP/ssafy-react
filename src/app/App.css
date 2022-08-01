@@ -1,0 +1,16 @@
+#app {
+  display: flex;
+  flex-flow: column-reverse;
+  align-items: flex-start;
+  margin: 1rem;
+  border: 1px solid #415162;
+  padding: 1.6rem;
+  background: #fff;
+}
+
+@media (min-width: 40em) {
+  #app {
+    flex-flow: row;
+    margin: 4rem;
+  }
+}

@@ -1,3 +1,4 @@
+import './App.css';
 import { useState } from 'react';
 import { translator } from '@/api';
 import { TranslateContents, TranslateButton } from '@/components';

@@ -1,0 +1,7 @@
+@import "normalize.css/opinionated";
+
+body {
+  line-height: 1.5;
+  background: #eaeaea;
+  color: #415162;
+}

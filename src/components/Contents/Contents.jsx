@@ -1,3 +1,5 @@
+import './Contents.css';
+
 export const TranslateContents = ({
   lang,
   contents: { headline, description },

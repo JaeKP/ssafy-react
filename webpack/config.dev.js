@@ -9,6 +9,7 @@ const devConfig = {
     alias: {
       '@/app': [getPathFromRoot('src/app')],
       '@/api': [getPathFromRoot('src/api')],
+      '@/styles': [getPathFromRoot('src/styles')],
       '@/components': [getPathFromRoot('src/components')],
     },
   },
@@ -25,6 +26,25 @@ const devConfig = {
         test: /\.jsx?$/i,
         exclude: /node_modules/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
     ],
   },

@@ -1,3 +1,5 @@
+import './Button.css';
+
 export const TranslateButton = ({ label, ...restProps }) => (
   <button
     type="button"

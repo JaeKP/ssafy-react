@@ -1,0 +1,19 @@
+.contents h1,
+.contents p {
+  margin-top: 0;
+}
+
+.contents h1 {
+  line-height: 1;
+}
+
+.contents p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 40em) {
+  .contents {
+    flex: 1;
+    margin-right: 4rem;
+  }
+}
