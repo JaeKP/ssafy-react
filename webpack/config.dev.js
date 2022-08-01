@@ -9,6 +9,7 @@ const devConfig = {
     alias: {
       '@/app': [getPathFromRoot('src/app')],
       '@/api': [getPathFromRoot('src/api')],
+      '@/assets': [getPathFromRoot('src/assets')],
       '@/styles': [getPathFromRoot('src/styles')],
       '@/components': [getPathFromRoot('src/components')],
     },
@@ -19,14 +20,18 @@ const devConfig = {
   output: {
     path: getPathFromRoot('public'),
     filename: 'js/[name].js',
-    chunkname: 'js/[name].chunk.js',
+    chunkFilename: 'js/[name].chunk.js',
     assetModuleFilename: 'assets/[name].[hash].[ext]',
   },
   module: {
     rules: [
       {
-        test: /\.(gif|jpe?g|png|webp|svg)$/i,
+        test: /\.(gif|jpe?g|png|webp)$/i,
         type: 'asset',
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset/resource',
       },
       {
         test: /\.jsx?$/i,
