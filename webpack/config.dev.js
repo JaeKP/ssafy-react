@@ -7,11 +7,7 @@ const devConfig = {
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
-      '@/app': [getPathFromRoot('src/app')],
-      '@/api': [getPathFromRoot('src/api')],
-      '@/assets': [getPathFromRoot('src/assets')],
-      '@/styles': [getPathFromRoot('src/styles')],
-      '@/components': [getPathFromRoot('src/components')],
+      '@': getPathFromRoot('src'),
     },
   },
   entry: {
@@ -30,8 +26,34 @@ const devConfig = {
         type: 'asset',
       },
       {
-        test: /\.svg$/i,
-        type: 'asset/resource',
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        issuer: {
+          and: [/\.(ts|js)x?$/i],
+        },
+        use: [
+          'babel-loader',
+          {
+            loader: '@svgr/webpack',
+            options: {
+              prettier: false,
+              titleProp: true,
+              svgo: true,
+              svgoConfig: {
+                plugins: [
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        removeViewBox: false,
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          },
+          'url-loader',
+        ],
       },
       {
         test: /\.jsx?$/i,
