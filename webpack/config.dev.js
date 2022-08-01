@@ -19,9 +19,15 @@ const devConfig = {
   output: {
     path: getPathFromRoot('public'),
     filename: 'js/[name].js',
+    chunkname: 'js/[name].chunk.js',
+    assetModuleFilename: 'assets/[name].[hash].[ext]',
   },
   module: {
     rules: [
+      {
+        test: /\.(gif|jpe?g|png|webp|svg)$/i,
+        type: 'asset',
+      },
       {
         test: /\.jsx?$/i,
         exclude: /node_modules/,

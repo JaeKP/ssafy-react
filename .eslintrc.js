@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
+    'jest/globals': true,
   },
   extends: [
     'eslint:recommended',
@@ -10,13 +11,13 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:jest/recommended',
     'plugin:prettier/recommended',
     'prettier',
   ],
   settings: {
-    react: {
-      version: 'detect',
-    },
+    react: { version: require('react/package.json').version },
+    jest: { version: require('jest/package.json').version },
   },
   parserOptions: {
     ecmaFeatures: {
@@ -25,7 +26,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'jsx-a11y'],
+  plugins: ['react', 'jsx-a11y', 'jest', 'prettier'],
   rules: {
     'react/prop-types': 'off',
   },
