@@ -33,10 +33,11 @@ const buildConfig = {
     }),
   },
   plugins: [
+    ...devConfig.plugins,
     new MiniCssExtractPlugin({
       filename: 'css/style.min.css',
     }),
-  ],
+  ].filter(Boolean),
   optimization: {
     minimize: true,
     minimizer: [
