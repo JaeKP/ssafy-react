@@ -4,25 +4,32 @@ class Translator {
   static textFormatting = (text) =>
     text.toString().replace(/\n\s+/g, '').trim();
 
+  #state = {};
+  #languageMode = '';
+
   constructor(state, initalLanguageMode) {
-    this._state = state;
-    this._languageMode = initalLanguageMode;
+    this.#state = state;
+    this.#languageMode = initalLanguageMode;
   }
 
-  get currentMode() {
-    return this._languageMode;
+  get currentLanguageMode() {
+    return this.#languageMode;
+  }
+
+  set currentLanguageMode(newMode) {
+    this.#languageMode = newMode;
   }
 
   isKorean() {
-    return this.currentMode === 'ko';
+    return this.currentLanguageMode === 'ko';
   }
 
   isEnglish() {
-    return this.currentMode === 'en';
+    return this.currentLanguageMode === 'en';
   }
 
   toggleLanguageMode() {
-    this._languageMode = this.isKorean() ? 'en' : 'ko';
+    this.currentLanguageMode = this.isKorean() ? 'en' : 'ko';
     return this;
   }
 
@@ -31,7 +38,7 @@ class Translator {
   }
 
   getContents(key) {
-    const contents = this._state[this.currentMode];
+    const contents = this.#state[this.currentLanguageMode];
     return key ? contents[key] : contents;
   }
 }
@@ -65,4 +72,4 @@ const initialState = {
 /* instance ----------------------------------------------------------------- */
 
 // eslint-disable-next-line no-unused-vars
-const translator = new Translator(initialState, 'en');
+export const translator = new Translator(initialState, 'en');
