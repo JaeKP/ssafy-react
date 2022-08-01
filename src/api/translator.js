@@ -72,4 +72,4 @@ const initialState = {
 /* instance ----------------------------------------------------------------- */
 
 // eslint-disable-next-line no-unused-vars
-const translator = new Translator(initialState, 'en');
+export const translator = new Translator(initialState, 'en');

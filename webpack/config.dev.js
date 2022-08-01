@@ -8,6 +8,8 @@ const devConfig = {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
       '@/app': [getPathFromRoot('src/app')],
+      '@/api': [getPathFromRoot('src/api')],
+      '@/components': [getPathFromRoot('src/components')],
     },
   },
   entry: {
