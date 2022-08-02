@@ -4,38 +4,44 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 
 const devConfig = require('./config.dev');
+const { getPathFromRoot } = require('./utils');
+const {
+  assetsLoader,
+  jsxLoader,
+  svgrLoader,
+  buildStylesLoader,
+  buildStylesModuleLoader,
+} = require('./loaders');
 
 const buildConfig = {
   mode: 'production',
   devtool: false,
   entry: {
+    reactVenders: ['react', 'react-dom'],
     main: {
       import: devConfig.entry.main,
       dependOn: 'reactVenders',
     },
-    reactVenders: ['react', 'react-dom'],
   },
   output: {
     ...devConfig.output,
+    path: getPathFromRoot('build'),
     filename: 'js/[name].min.js',
-    chunkFilename: 'js/[name].chunk.js',
+    chunkFilename: 'js/[name].chunk.min.js',
   },
   module: {
-    rules: devConfig.module.rules.map((rule) => {
-      const reg = rule.test;
-      if (reg.test('.css')) {
-        return {
-          ...rule,
-          use: [MiniCssExtractPlugin.loader, ...rule.use.slice(1)],
-        };
-      }
-      return rule;
-    }),
+    rules: [
+      jsxLoader,
+      assetsLoader,
+      svgrLoader,
+      buildStylesLoader,
+      buildStylesModuleLoader,
+    ],
   },
   plugins: [
     ...devConfig.plugins,
     new MiniCssExtractPlugin({
-      filename: 'css/style.min.css',
+      filename: 'css/[name].min.css',
     }),
   ].filter(Boolean),
   optimization: {

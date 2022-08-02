@@ -1,6 +1,13 @@
-const { getPathFromRoot } = require('./config.utils');
+const { getPathFromRoot } = require('./utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {
+  assetsLoader,
+  jsxLoader,
+  svgrLoader,
+  stylesLoader,
+  stylesModuleLoader,
+} = require('./loaders');
 
 const devConfig = {
   target: 'web',
@@ -23,71 +30,12 @@ const devConfig = {
   },
   module: {
     rules: [
-      {
-        test: /\.(gif|jpe?g|png|webp)$/i,
-        type: 'asset',
-      },
-      {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        issuer: {
-          and: [/\.(ts|js)x?$/i],
-        },
-        use: [
-          'babel-loader',
-          {
-            loader: '@svgr/webpack',
-            options: {
-              prettier: false,
-              titleProp: true,
-              svgo: true,
-              svgoConfig: {
-                plugins: [
-                  {
-                    name: 'preset-default',
-                    params: {
-                      overrides: {
-                        removeViewBox: false,
-                      },
-                    },
-                  },
-                ],
-              },
-            },
-          },
-          'url-loader',
-        ],
-      },
-      {
-        test: /\.s?[ac]ss$/i,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              importLoaders: 2,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.jsx?$/i,
-        exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-    ],
+      jsxLoader,
+      assetsLoader,
+      svgrLoader,
+      stylesModuleLoader,
+      stylesLoader,
+    ].filter(Boolean),
   },
   plugins: [
     new HtmlWebpackPlugin({

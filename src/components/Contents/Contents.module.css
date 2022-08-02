@@ -1,0 +1,19 @@
+.box h1,
+.box p {
+  margin-top: 0;
+}
+
+.box h1 {
+  line-height: 1;
+}
+
+.box p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 40em) {
+  .box {
+    flex: 1;
+    margin-right: 4rem;
+  }
+}

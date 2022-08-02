@@ -1,0 +1,28 @@
+.translation {
+  cursor: pointer;
+  margin-bottom: 20px;
+  border: 1px solid #415162;
+  border-radius: 4px;
+  padding: 0.4em 0.5em;
+  font-size: 0.6rem;
+  color: #415162;
+  touch-action: none;
+  box-shadow: 0 2px 2px #415162;
+
+  &:hover {
+    background: #dfdfdf;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  & svg {
+    pointer-events: none;
+    fill: currentColor;
+  }
+
+  @media (min-width: 40em) {
+    margin-bottom: 0;
+  }
+}
