@@ -25,7 +25,7 @@ const buildConfig = {
       const reg = rule.test;
       if (reg.test('.css')) {
         return {
-          test: /\.css$/i,
+          ...rule,
           use: [MiniCssExtractPlugin.loader, ...rule.use.slice(1)],
         };
       }

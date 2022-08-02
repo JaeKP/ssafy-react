@@ -1,0 +1,8 @@
+@use './config' as _;
+@import 'normalize.css';
+
+body {
+  line-height: 1.5;
+  background: _.get-color(bg);
+  color: _.get-color(fg);
+}
