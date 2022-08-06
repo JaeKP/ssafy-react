@@ -1,0 +1,36 @@
+.wrapper {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-height: 240px;
+}
+
+.list {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+}
+
+.list thead {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.list caption {
+  width: 50%;
+  margin: 8px auto 16px;
+  border-radius: 60px;
+  padding: 0.2em 0.6em;
+  font-size: 16px;
+  font-weight: 700;
+  background: #111;
+  color: #fff;
+}
+
+.list th,
+.list td {
+  padding: 0.6em 0.3em;
+}

@@ -1,0 +1,80 @@
+.button {
+  cursor: pointer;
+  flex: 1 1 calc(100% / 3);
+  position: relative;
+  margin: 0;
+  border: 0;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  background: #111;
+  color: #fff;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  background: #111 !important;
+  color: #a8aab8;
+  outline: none !important;
+}
+
+.button:hover {
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    #111 0 4px,
+    #333 4px 8px
+  );
+  outline: 1px solid;
+}
+
+.button:focus-visible {
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    rgb(64, 72, 91) 0 4px,
+    rgb(34, 40, 52) 4px 8px
+  );
+  outline: none;
+}
+
+/* Group -------------------------------------------------------------------- */
+
+.group {
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 8px;
+  gap: 1px;
+}
+
+.group .button:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.group .button:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.group .button:first-child::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 30px;
+  height: 30px;
+  background: url('/dice.png') no-repeat center / 30px;
+  animation: rolling 1.6s infinite linear;
+  animation-play-state: paused;
+}
+
+.group .button:first-child:hover::before,
+.group .button:first-child:focus::before {
+  animation-play-state: running;
+}
+
+@keyframes rolling {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
