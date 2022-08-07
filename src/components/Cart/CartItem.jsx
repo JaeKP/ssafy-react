@@ -1,6 +1,7 @@
 import { exact, func, number, string } from 'prop-types';
 import styles from './CartItem.module.css';
 import { Counter } from 'components';
+import { useTheme } from 'contexts';
 import { currencyKR } from 'utils';
 
 /* -------------------------------------------------------------------------- */
@@ -10,12 +11,29 @@ export default function CartItem({
   onUpdate,
   ...restProps
 }) {
+  const {
+    theme: {
+      value: { forground },
+    },
+  } = useTheme();
+
   return (
     <li className={styles.container} key={id} {...restProps}>
       <img className={styles.photo} src={photo} alt="" />
       <div className={styles.info}>
-        <b className={styles.name}>{name}</b>
-        <span className={styles.price}>{currencyKR(price)}</span>
+        <b
+          className={styles.name}
+          style={{
+            color: forground.includes('fff')
+              ? forground.replace(/fff/, 'aaa')
+              : null,
+          }}
+        >
+          {name}
+        </b>
+        <span className={styles.price} style={{ color: forground }}>
+          {currencyKR(price)}
+        </span>
       </div>
       <div className={styles.amount}>
         <Counter

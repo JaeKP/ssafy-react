@@ -6,8 +6,10 @@ import {
   number,
   oneOfType,
   func,
+  object,
 } from 'prop-types';
 import { useCallback, useEffect, useState } from 'react';
+import { useTheme } from 'contexts';
 import CountDisplay from './CountDisplay';
 import CountButton from './CountButton';
 import CountContainer from './CountContainer';
@@ -22,8 +24,15 @@ export function Counter({
   max,
   step,
   current,
+  style,
   ...restProps
 }) {
+  const {
+    theme: {
+      value: { forground, background },
+    },
+  } = useTheme();
+
   const [count, setCount] = useState(current);
 
   useEffect(() => {
@@ -43,7 +52,15 @@ export function Counter({
   let isMaxValue = count >= max;
 
   return (
-    <CountContainer id={id} {...restProps}>
+    <CountContainer
+      id={id}
+      style={{
+        ...style,
+        background: forground,
+        color: background,
+      }}
+      {...restProps}
+    >
       <CountButton
         mode="minus"
         label={minus.label}
@@ -98,4 +115,5 @@ Counter.propTypes = {
   current: StringOrNumberType,
   step: StringOrNumberType,
   onUpdate: func,
+  style: object,
 };

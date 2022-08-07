@@ -1,0 +1,10 @@
+.controller {
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border: none;
+  padding: 0.8em 1.6em;
+  background: transparent;
+  font-size: 12px;
+}

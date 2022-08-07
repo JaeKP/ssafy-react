@@ -3,10 +3,17 @@ import { useCallback, useMemo, useState } from 'react';
 import CartTitle from './CartTitle';
 import CartList from './CartList';
 import CartTotal from './CartTotal';
+import { useTheme } from 'contexts';
 
 /* -------------------------------------------------------------------------- */
 
 export function Cart() {
+  const {
+    theme: {
+      value: { forground, background },
+    },
+  } = useTheme();
+
   const [products, setProducts] = useState([
     {
       id: 'milk',
@@ -54,7 +61,14 @@ export function Cart() {
   );
 
   return (
-    <section className={styles.container}>
+    <section
+      className={styles.container}
+      style={{
+        color: forground,
+        background: background,
+        borderColor: forground,
+      }}
+    >
       <CartTitle>장바구니</CartTitle>
       <CartList products={products} onUpdate={handleUpdateAmount} />
       {products.length === 0 && <p>구매할 상품을 리스트에 포함하세요.</p>}
