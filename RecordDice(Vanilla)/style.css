@@ -1,0 +1,214 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font: 1rem/1.5 'Pretendard', sans-serif;
+  background: #f9f9f9;
+}
+
+abbr[title] {
+  cursor: help;
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.missionNavigation {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  border: 10px solid transparent;
+  border-radius: 50%;
+  border-image: linear-gradient(-45deg, #1eadea 40%, #451dbc 60%);
+  border-image-slice: 1;
+  padding: 20px 32px 20px 20px;
+}
+
+.missionNavigation ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  transform: translateY(-8px);
+}
+
+.missionNavigation a {
+  display: block;
+  padding: 0.1em 0.4em;
+  text-decoration: none;
+  font-size: 20px;
+  color: #1eadea;
+}
+
+.missionNavigation li:last-of-type a {
+  color: #451dbc;
+}
+
+.bigHeadline {
+  margin: 0;
+  padding: 20px;
+  line-height: 0.8;
+  font-size: 64px;
+  font-weight: 600;
+  font-style: italic;
+  background-image: linear-gradient(-45deg, #1eadea 20%, #451dbc 80%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+#RecordCouter {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  max-width: 480px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 44px 60px 40px;
+  text-align: center;
+  background: #fff;
+  transition: all 0.6s ease-in-out;
+  gap: 24px;
+}
+
+#RecordCouter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 20px rgba(0, 0, 0, 0.1);
+}
+
+#RecordCouter *:not(table, caption) {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.counter {
+  height: 120px;
+  line-height: 1;
+  font-size: 120px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 8px;
+  gap: 1px;
+}
+
+.buttonGroup button {
+  cursor: pointer;
+  flex: 1 1 calc(100% / 3);
+  position: relative;
+  margin: 0;
+  border: 0;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  background: #111;
+  color: #fff;
+}
+
+.buttonGroup button:disabled {
+  cursor: not-allowed;
+  background: #111 !important;
+  color: #a8aab8;
+  outline: none !important;
+}
+
+.buttonGroup button:hover {
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    #111 0 4px,
+    #333 4px 8px
+  );
+  outline: 1px solid;
+}
+
+.buttonGroup button:focus-visible {
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    rgb(64, 72, 91) 0 4px,
+    rgb(34, 40, 52) 4px 8px
+  );
+  outline: none;
+}
+
+.buttonGroup button:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.buttonGroup button:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.buttonGroup button:first-child::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 30px;
+  height: 30px;
+  background: url('./assets/dice.png') no-repeat center / 30px;
+  animation: rolling 1.6s infinite linear;
+  animation-play-state: paused;
+}
+
+.buttonGroup button:first-child:hover::before,
+.buttonGroup button:first-child:focus::before {
+  animation-play-state: running;
+}
+
+@keyframes rolling {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.recordListWrapper {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-height: 240px;
+}
+
+.recordList {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+}
+
+.recordList thead {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.recordList caption {
+  width: 50%;
+  margin: 8px auto 16px;
+  border-radius: 60px;
+  padding: 0.2em 0.6em;
+  font-size: 16px;
+  font-weight: 700;
+  background: #111;
+  color: #fff;
+}
+
+.recordList th,
+.recordList td {
+  padding: 0.6em 0.3em;
+}

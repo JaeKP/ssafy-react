@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>레코드 다이스(Record Dice)</title>
+    <link as="style" rel="stylesheet"
+          href="//cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/assets/dice.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  </head>
+
+  <body>
+
+    <article id="RecordCouter">
+      <h1 class="logo">
+        <img src="/assets/logo.png" alt="레코드 카운터" height="144" />
+      </h1>
+      <output class="counter">?</output>
+      <div class="buttonGroup">
+        <button type="button">
+          주사위 굴리기
+        </button>
+        <button type="button">기록</button>
+        <button type="button">초기화</button>
+      </div>
+      <div class="recordListWrapper">
+        <table class="recordList">
+          <caption>레코드 리스트</caption>
+          <thead>
+            <tr>
+              <th scope="col">회차</th>
+              <th scope="col">기록</th>
+              <th scope="col">합계</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>6</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>3</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>1</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>5</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>4</td>
+              <td>19</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+  </body>
+
+</html>
