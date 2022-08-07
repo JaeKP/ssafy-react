@@ -1,0 +1,11 @@
+.container {}
+
+.headline {
+  display: inline-block;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

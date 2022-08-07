@@ -1,0 +1,20 @@
+:root {
+  min-height: 100.043vh;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  font: 300 1rem/1.5 'Spoqa Hans Sans', sans-serif;
+}
+
+.wireframeBox {
+  margin-bottom: 1rem;
+  padding: 2rem;
+  border: 6px dashed $primary-color;
+}
+
+.page h2 {
+  margin: 0 0 1rem;
+  color: $primary-color;
+}
