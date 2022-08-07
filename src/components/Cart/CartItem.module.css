@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1em 0.5em;
+}
+
+.photo {
+  --size: 60px;
+  flex: 0 0 var(--size);
+  width: var(--size);
+  height: var(--size);
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  margin-right: 20px;
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #595959;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #111;
+}
+
+.amount {
+  flex: 1;
+  text-align: right;
+}
