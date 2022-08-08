@@ -1,3 +1,5 @@
+@use 'styles/config' as *;
+
 .container {
   margin: 0;
 }
@@ -16,12 +18,12 @@
 
 .link {
   padding: 1rem;
-  color: var(--primary-color);
+  color: $primary-color;
   text-decoration: none;
   font-weight: bold;
 }
 
 .active {
-  background: var(--active-color);
+  background: $active-color;
   border-radius: 6px;
 }

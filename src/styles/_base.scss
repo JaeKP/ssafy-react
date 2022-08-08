@@ -12,6 +12,9 @@ body {
   margin-bottom: 1rem;
   padding: 2rem;
   border: 6px dashed $primary-color;
+  &.height {
+    height: 2rem;
+  }
 }
 
 .page h2 {

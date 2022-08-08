@@ -1,5 +1,5 @@
 import { number, object, string } from 'prop-types';
-import styles from './styles.module.scss';
+import styles from './WireframeBox.module.scss';
 import { classNames } from 'utils';
 
 /* -------------------------------------------------------------------------- */

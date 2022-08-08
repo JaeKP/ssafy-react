@@ -1,4 +1,7 @@
+@use 'styles/config' as *;
+
 .container {
+  background: $white-color;
 }
 
 .headline {

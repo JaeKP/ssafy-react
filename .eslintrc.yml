@@ -17,4 +17,4 @@ plugins:
   - react
   - react-hooks
   - jsx-a11y
-rules: {}
+rules: { react/self-closing-comp: warn }

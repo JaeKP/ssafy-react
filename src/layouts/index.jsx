@@ -1,5 +1,5 @@
-import { arrayOf, exact, node, string } from 'prop-types';
-import styles from './styles.module.scss';
+import { arrayOf, shape, node, string } from 'prop-types';
+import styles from './Layout.module.scss';
 import { Header } from './Header/Header';
 import { Navigation } from './Navigation/Navigation';
 import { Main } from './Main/Main';
@@ -15,13 +15,13 @@ export function BaseLayout({ navigation, children, ...restProps }) {
       </Header>
       <Main>{children}</Main>
       <Footer>
-        <div className="wireframeBox"></div>
+        <div className="wireframeBox height" />
       </Footer>
     </div>
   );
 }
 
 BaseLayout.propTypes = {
-  navigation: arrayOf(exact({ id: string, href: string, text: string })),
+  navigation: arrayOf(shape({ id: string, href: string, text: string })),
   children: node,
 };

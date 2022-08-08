@@ -1,8 +1,9 @@
 import 'react-app-polyfill/stable';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from 'App';
+import { AuthProvider } from 'contexts';
 import 'styles/global.scss';
+import App from 'App';
 
 /* -------------------------------------------------------------------------- */
 
@@ -10,6 +11,8 @@ const root = createRoot(document.getElementById('root'));
 
 root.render(
   <StrictMode>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </StrictMode>
 );

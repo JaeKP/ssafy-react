@@ -1,5 +1,5 @@
 import { string } from 'prop-types';
-import styles from './styles.module.scss';
+import styles from './Main.module.scss';
 import { classNames } from 'utils';
 
 export function Main({ id, className, ...restProps }) {

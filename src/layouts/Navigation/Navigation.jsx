@@ -1,24 +1,28 @@
-import styles from './styles.module.scss';
-import { string, exact, arrayOf } from 'prop-types';
-import { Link, SkipToContent } from 'components';
+import { useCallback } from 'react';
+import { string, shape, arrayOf } from 'prop-types';
+import { NavLink, useLocation } from 'react-router-dom';
+import styles from './Navigation.module.scss';
+import { SkipToContent } from 'components';
+import { useAuth } from 'contexts';
 import { classNames } from 'utils';
 
 /* -------------------------------------------------------------------------- */
 
-export function Navigation({ list, className, currentPage, ...restProps }) {
+export function Navigation({ list, className, ...restProps }) {
+  const { currentUser } = useAuth();
+
   return (
     <>
-      <SkipToContent currentPage={currentPage ?? ''} />
+      <SkipToContent />
       {list && (
         <nav className={classNames(styles.container)(className)} {...restProps}>
           <ul className={classNames(styles.list)('resetList')}>
-            {list.map((item) => (
-              <Navigation.Item
-                key={item.id}
-                currentPage={currentPage ?? ''}
-                item={item}
-              />
-            ))}
+            {list.map((item) => {
+              if (!currentUser && item.href.includes('dashboard')) {
+                return null;
+              }
+              return <Navigation.Item key={item.id} item={item} />;
+            })}
           </ul>
         </nav>
       )}
@@ -26,7 +30,7 @@ export function Navigation({ list, className, currentPage, ...restProps }) {
   );
 }
 
-const NavigationItemType = exact({
+const NavigationItemType = shape({
   id: string,
   href: string,
   text: string,
@@ -35,26 +39,39 @@ const NavigationItemType = exact({
 Navigation.propTypes = {
   list: arrayOf(NavigationItemType),
   className: string,
-  currentPage: string,
 };
 
 /* -------------------------------------------------------------------------- */
 
-Navigation.Item = function NavigationItem({ item, currentPage, ...restProps }) {
+Navigation.Item = function NavigationItem({ item, ...restProps }) {
+  const handleSkipToContent = useCallback((e) => {
+    if (e.key === 'Enter') {
+      setTimeout(() => document.getElementById('content').focus(), 200);
+    }
+  }, []);
+
+  const { pathname } = useLocation();
+
   return (
     <li className={styles.item} {...restProps}>
-      <Link
+      <NavLink
         to={item.href}
-        className={styles.link}
-        activeClass={item.href.includes(currentPage) ? styles.active : ''}
+        className={({ isActive }) => {
+          return classNames(styles.link)(
+            isActive ||
+              (item.text.includes('프로덕트') && pathname.match(/product/))
+              ? styles.active
+              : ''
+          );
+        }}
+        onKeyUp={handleSkipToContent}
       >
         {item.text}
-      </Link>
+      </NavLink>
     </li>
   );
 };
 
 Navigation.Item.propTypes = {
-  currentPage: string.isRequired,
   item: NavigationItemType.isRequired,
 };

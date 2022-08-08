@@ -1,18 +1,44 @@
-import { string } from 'prop-types';
-import styles from './styles.module.scss';
+import { node, string } from 'prop-types';
+import styles from './Header.module.scss';
 import { classNames } from 'utils';
+import { useAuth } from 'contexts';
 
-/* component ---------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 
-export function Header({ className, ...restProps }) {
+export function Header({ className, children, ...restProps }) {
+  const { currentUser, signIn, signOut } = useAuth();
+
+  const handleSignIn = () => {
+    signIn(
+      {
+        name: 'yamoo9',
+        role: 'instructor',
+      },
+      'admin'
+    );
+  };
+
   return (
-    <header
-      className={classNames(styles.container)(className)}
-      {...restProps}
-    />
+    <header className={classNames(styles.container)(className)} {...restProps}>
+      {children}
+      <div className={styles.buttonGroup}>
+        <button
+          type="button"
+          className={styles.button}
+          onClick={currentUser ? signOut : handleSignIn}
+        >
+          {currentUser ? '로그아웃' : '로그인'}
+        </button>
+      </div>
+    </header>
   );
 }
 
+Header.defaultProps = {
+  className: '',
+};
+
 Header.propTypes = {
   className: string,
+  children: node,
 };

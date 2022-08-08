@@ -1,13 +1,20 @@
+import { bool, elementType, oneOfType, string } from 'prop-types';
+import styles from './A11yHidden.module.scss';
 import { classNames } from 'utils';
-import { elementType, oneOfType, string } from 'prop-types';
-import styles from './styles.module.scss';
 
 /* -------------------------------------------------------------------------- */
 
-export function A11yHidden({ as: Component, className, ...restProps }) {
+export function A11yHidden({
+  as: Component,
+  className,
+  focusable,
+  ...restProps
+}) {
   return (
     <Component
-      className={classNames(styles.wrapper)(className)}
+      className={classNames(styles.wrapper)(
+        `${focusable ? styles.focusable : ''} ${className}`
+      )}
       {...restProps}
     />
   );
@@ -16,9 +23,11 @@ export function A11yHidden({ as: Component, className, ...restProps }) {
 A11yHidden.defaultProps = {
   as: 'span',
   className: '',
+  focusable: false,
 };
 
 A11yHidden.propTypes = {
   as: oneOfType([elementType, string]),
   className: string,
+  focusable: bool,
 };
