@@ -6,11 +6,7 @@ const devConfig = {
   mode: 'development',
   devtool: 'eval-cheap-source-map',
   entry: {
-    main: {
-      import: resolve(__root, 'src/index.js'),
-      dependOn: 'reactVenders',
-    },
-    reactVenders: ['react', 'react-dom'],
+    main: resolve(__root, 'src/index.js'),
   },
   output: {
     path: resolve(__root, 'public'),
