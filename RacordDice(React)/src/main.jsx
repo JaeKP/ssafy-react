@@ -7,6 +7,19 @@ const root = createRoot(document.getElementById('root'));
 
 root.render(
   <StrictMode>
-    <App />
+    <App
+      buttons={[
+        {
+          id: 'button-zero',
+          content: 'read a doc',
+          type: 'button',
+        },
+        {
+          id: 'button-one',
+          content: 'formatting document',
+          type: 'reset',
+        },
+      ]}
+    />
   </StrictMode>
 );
