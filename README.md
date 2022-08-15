@@ -1,20 +1,24 @@
-# React Programming
+# Redux Architecture
 
-SSAFY(삼성 청년 아카데미) React 특강 학습 일정
+Redux 아키텍처(설계 사용, 방식)에 대해 학습합니다.
 
-| 일자             | 학습 주제                                     |
-| ---------------- | --------------------------------------------- |
-| 2022. 8. 8 (월)  | React 라이브러리 소개                         |
-|                  | 웹 브라우저 환경에서 React 시작하기           |
-| 2022. 8. 9 (화)  | React 개발 환경 매뉴얼 구성                   |
-|                  | 툴체인으로 React 프로젝트 스캐폴딩            |
-| 2022. 8. 10 (수)  | React 훅(Hooks) API / Props 타입 검사         |
-|                  | React 컨텍스트(Context) API / 테마, 인증 관리 |
-| 2022. 8. 17 (수)  | 클라이언트 사이드 라우팅 구성                 |
-|                  | 검색엔진 최적화 (SEO) / 보호된 라우트 (인증)  |
-| 2022. 8. 19 (금)  | Redux 아키텍처                                |
-|                  | React 앱에 Redux 통합                         |
-| 2022. 8. 26 (금)  | RTK 소개 및 사용법                            |
-|                  | RTK Query 활용                                |
-| 2022. 8. 30 (화) | 토이 프로젝트                                 |
-|                  | 프로젝트 배포 (CI / CD)                       |
+- Store
+- Reducer
+- Dispatch
+- Action
+- ActionCreactor
+- Subscription
+
+## Combine Reducers
+
+여러 리듀서를 병합하는 방법을 학습합니다.
+
+- combineReducers
+
+# React Integration
+
+Redux를 React 애플리케이션에 통합하여 사용하는 방법을 학습합니다.
+
+- Provider
+- useSelector
+- useDispatch

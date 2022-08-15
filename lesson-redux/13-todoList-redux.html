@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TodoList with Redux</title>
+    <style>
+      body {
+        margin: 0;
+        background: #f6f3fe;
+      }
+
+      .todoListApp {
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 8px;
+        width: 480px;
+        margin: 100px auto;
+      }
+
+      .addTodoControl {
+        display: flex;
+        gap: 4px;
+        align-items: flex-end;
+      }
+
+      .formControl {
+        display: flex;
+        flex-flow: column;
+        gap: 4px;
+      }
+
+      .formControl label {
+        color: #2e2163;
+      }
+
+      .formControl input {
+        padding: 0.8em;
+        border-radius: 4px;
+        border: 2px solid #c2b8e9;
+      }
+
+      .todoList {
+        display: flex;
+        flex-flow: column;
+        gap: 4px;
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .todoList li {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #2e2163;
+      }
+
+      .button {
+        cursor: pointer;
+        margin-bottom: 2px;
+        border: none;
+        border-radius: 4px;
+        padding: 0.6em 1.2em;
+        background: #c5bde3;
+        box-shadow: 0 2px 2px rgba(111, 100, 156, 0.8);
+        color: #2e2163;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .checkmarkButton {
+        cursor: pointer;
+        line-height: 1;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: inherit;
+      }
+
+      .checkmarkButton svg {
+        fill: currentColor;
+      }
+
+      .showVisibleFilter {
+        font-size: 0.875rem;
+        line-height: 1.7;
+      }
+      .showVisibleFilter a {
+        padding: 0 0.3em;
+        line-height: 1;
+        color: #2e2163;
+        text-decoration: none;
+      }
+      .showVisibleFilter .filterActived {
+        cursor: not-allowed;
+        padding: 0 0.3em;
+        line-height: 1;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        color: #533dab;
+      }
+
+      .shortcut {
+        padding: 0 0.3em;
+      }
+
+      .shortcut code {
+        letter-spacing: -1px;
+        line-height: 1;
+        border-radius: 50px;
+        padding: 0.1em 0.5em;
+        background: #d7d2f0;
+        color: #533dab;
+      }
+    </style>
+    <script src="//unpkg.com/react/umd/react.development.js" crossorigin></script>
+    <script src="//unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+    <script src="//unpkg.com/redux/dist/redux.min.js" crossorigin></script>
+    <script src="//unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+    <script type="text/jsx" data-type="module" src="./13-todoList-redux.js"></script>
+  </head>
+
+  <body>
+
+    <div id="root"></div>
+
+  </body>
+
+</html>
