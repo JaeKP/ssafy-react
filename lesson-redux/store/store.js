@@ -8,4 +8,11 @@ const todoListAppReducer = combineReducers({
   visibilityFilter,
 });
 
-export const store = createStore(todoListAppReducer);
+const preloadedState = {
+  todoList: [
+    { id: 'learn-react', doit: 'React 학습', completed: true },
+    { id: 'learn-redux', doit: 'Redux 학습', completed: false },
+  ],
+};
+
+export const store = createStore(todoListAppReducer, preloadedState);
