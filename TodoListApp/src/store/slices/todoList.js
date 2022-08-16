@@ -1,9 +1,11 @@
+import { v4 as uuid } from 'uuid';
+
 const ADD_TODO = 'todo/add';
 const TOGGLE_TODO = 'todo/toggle';
 
 const addTodo = ({ id, doit }) => ({
   type: ADD_TODO,
-  id,
+  id: `${uuid()}_${id}`,
   doit,
 });
 

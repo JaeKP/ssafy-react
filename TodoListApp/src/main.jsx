@@ -1,15 +1,17 @@
 import { StrictMode } from 'react';
+import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 import { TodoListApp } from '@/components/TodoListApp';
-import { StoreProvider } from '@/store';
+import { configureStore } from '@/store';
 import '@/styles/global.css';
 
+const { store } = configureStore();
 const root = createRoot(document.getElementById('root'));
 
 root.render(
   <StrictMode>
-    <StoreProvider>
+    <Provider store={store}>
       <TodoListApp />
-    </StoreProvider>
+    </Provider>
   </StrictMode>
 );
