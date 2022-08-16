@@ -15,4 +15,8 @@ const preloadedState = {
   ],
 };
 
-export const store = createStore(todoListAppReducer, preloadedState);
+export const store = createStore(
+  todoListAppReducer,
+  preloadedState,
+  window.__REDUX_DEVTOOLS_EXTENSION__?.()
+);
