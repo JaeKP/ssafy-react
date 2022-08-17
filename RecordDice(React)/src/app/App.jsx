@@ -75,16 +75,9 @@ export default function App({ FPS }) {
     [values]
   );
 
-  const renderMemoizedLogo = useMemo(
-    () => <Logo alt="Record Dice (Counter)" />,
-    []
-  );
-
   return (
     <Wrapper as="article" className={styles.container}>
-      {/* <Logo alt="Record Dice (Counter)" /> */}
-      {/* {useMemo(() => createElement(Logo, { alt: 'Record Dice (Counter)' }), [])} */}
-      {renderMemoizedLogo}
+      <Logo alt="Record Dice (Counter)" />
       <Dice content={diceContent} />
       <Button.Group>
         <Button onClick={handleRollingDice}>주사위 굴리기</Button>

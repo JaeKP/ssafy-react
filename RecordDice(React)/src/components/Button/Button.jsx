@@ -24,9 +24,8 @@ _Button.propTypes = {
   className: string,
 };
 
-const Button = React.memo(_Button);
-
-export default Button;
+export const Button = React.memo(_Button);
+Button.displayName = 'Button';
 
 /* Button Group ------------------------------------------------------------- */
 
