@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import styles from './App.module.css';
 import reactLogo from '@/assets/react.svg';
 import { Button } from '@/components';
@@ -21,8 +22,11 @@ export default function App({ buttons: initButtonState }) {
   React.useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('https://randomuser.me/api');
-        const { results } = await response.json();
+        // const response = await fetch('https://randomuser.me/api');
+        // const { results } = await response.json();
+        const {
+          data: { results },
+        } = await axios.get('https://randomuser.me/api');
 
         const {
           name: { first, last },
