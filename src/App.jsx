@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { BaseLayout } from 'layouts';
+import { Route, Routes } from 'react-router-dom';
 
 /* pages -------------------------------------------------------------------- */
 
 import Landing from 'pages/Landing/Landing';
+import Dashboard from 'pages/Dashboard/Dashboard';
+import Products from 'pages/Products/Products';
 
 /* app ---------------------------------------------------------------------- */
 
@@ -32,7 +35,11 @@ export default function App() {
 
   return (
     <BaseLayout navigation={navigation}>
-      <Landing />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/products" element={<Products />} />
+      </Routes>
     </BaseLayout>
   );
 }

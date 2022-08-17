@@ -1,5 +1,7 @@
 import { string, shape, arrayOf } from 'prop-types';
-import { Link, SkipToContent } from 'components';
+import { NavLink } from 'react-router-dom';
+// import classNames from 'classnames';
+import { SkipToContent } from 'components';
 import styles from './Navigation.module.scss';
 import { classNames } from 'utils';
 
@@ -40,16 +42,24 @@ Navigation.propTypes = {
 
 /* -------------------------------------------------------------------------- */
 
-Navigation.Item = function NavigationItem({ item, ...restProps }) {
+Navigation.Item = function NavigationItem({ item, className, ...restProps }) {
   return (
     <li className={styles.item} {...restProps}>
-      <Link to={item.href} className={styles.link}>
+      <NavLink
+        to={item.href}
+        className={({ isActive }) => {
+          return classNames(styles.link)(
+            `${className ?? ''} ${isActive ? styles.active : ''}`
+          );
+        }}
+      >
         {item.text}
-      </Link>
+      </NavLink>
     </li>
   );
 };
 
 Navigation.Item.propTypes = {
   item: NavigationItemType.isRequired,
+  className: string,
 };

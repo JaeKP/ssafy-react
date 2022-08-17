@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import { classNames, setDocumentTitle } from 'utils';
+import { classNames } from 'utils';
 import { WireframeBox } from 'components';
 import styles from './Landing.module.scss';
 
