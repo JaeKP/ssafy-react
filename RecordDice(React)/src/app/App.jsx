@@ -1,5 +1,11 @@
 import { number } from 'prop-types';
-import { useCallback, useState, useEffect, useMemo } from 'react';
+import {
+  // createElement,
+  useCallback,
+  useState,
+  useEffect,
+  useMemo,
+} from 'react';
 import { Button, Wrapper, Logo, Dice, Record } from '@/components';
 import { getRandomMinMax } from '@/utils/getRandom';
 import diceSound from '@/lib/DiceSound';
@@ -69,16 +75,23 @@ export default function App({ FPS }) {
     [values]
   );
 
+  const renderMemoizedLogo = useMemo(
+    () => <Logo alt="Record Dice (Counter)" />,
+    []
+  );
+
   return (
     <Wrapper as="article" className={styles.container}>
-      <Logo alt="Record Dice (Counter)" />
+      {/* <Logo alt="Record Dice (Counter)" /> */}
+      {/* {useMemo(() => createElement(Logo, { alt: 'Record Dice (Counter)' }), [])} */}
+      {renderMemoizedLogo}
       <Dice content={diceContent} />
       <Button.Group>
         <Button onClick={handleRollingDice}>주사위 굴리기</Button>
         <Button onClick={handleRecord} disabled={!isStart || isRolling}>
           기록
         </Button>
-        <Button onClick={handleReset} disabled={!isStart || isRolling}>
+        <Button onClick={handleReset} disabled={!isStart}>
           초기화
         </Button>
       </Button.Group>

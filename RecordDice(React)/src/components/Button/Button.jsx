@@ -1,10 +1,11 @@
+import React from 'react';
 import { oneOf, oneOfType, elementType, string } from 'prop-types';
 import classNames from 'classnames';
 import styles from './Button.module.css';
 
 /* Button ------------------------------------------------------------------- */
 
-export function Button({ type, className, ...restProps }) {
+function _Button({ type, className, ...restProps }) {
   return (
     <button
       type={type}
@@ -14,14 +15,18 @@ export function Button({ type, className, ...restProps }) {
   );
 }
 
-Button.defaultProps = {
+_Button.defaultProps = {
   type: 'button',
 };
 
-Button.propTypes = {
+_Button.propTypes = {
   type: oneOf([...'button reset submit'.split(' ')]),
   className: string,
 };
+
+const Button = React.memo(_Button);
+
+export default Button;
 
 /* Button Group ------------------------------------------------------------- */
 
