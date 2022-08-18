@@ -10,23 +10,32 @@ function test(description, callback) {
   console.groupEnd();
 }
 
+const toBe = (received, expected, not = false) => {
+  let condition = !not ? received !== expected : received === expected;
+  if (condition) {
+    throw new Error(
+      `전달 값 ${received} 과 기대 값 ${expected}이 ${!not ? '같지 않습니다.' : '같습니다.'}`
+    );
+  }
+}
+
+const toEqual = (received, expected, not = false) => {
+  for (let [key, value] of Object.entries(expected)) {
+    if (received[key] !== value) {
+      throw new Error(
+        `전달 값 ${received} 과 기대 값 ${expected}이 ${!not ? '같지 않습니다.' : '같습니다.'}`
+      );
+    }
+  }
+};
+
 function expect(received) {
   return {
-    toBe(expected) {
-      if (received !== expected) {
-        throw new Error(
-          `전달 값 ${received} 과 기대 값 ${expected}이 같지 않습니다.`
-        );
-      }
-    },
-    toEqual(expected) {
-      for (let [key, value] of Object.entries(expected)) {
-        if (received[key] !== value) {
-          throw new Error(
-            `전달 값 ${received} 과 기대 값 ${expected}이 같지 않습니다.`
-          );
-        }
-      }
+    toBe(expected) { toBe(received, expected); },
+    toEqual(expected) { toEqual(received, expected); },
+    not: {
+      toBe(expected) { toBe(received, expected, true); },
+      toEqual(expected) { toEqual(received, expected, true); },
     },
   };
 }
