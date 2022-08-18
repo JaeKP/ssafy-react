@@ -19,7 +19,8 @@ const mutableObject = {
   },
 };
 
-const immutableObject = immutable(mutableObject);
+// mutableObject를 불변화 한 후, immutableObject에 할당
+const immutableObject = Object.assign({}, mutableObject);
 
 console.log(isFrozen(mutableObject));
 console.log(isFrozen(immutableObject));
@@ -28,5 +29,12 @@ console.log(isFrozen(immutableObject.b));
 console.log(isFrozen(immutableObject.b.c));
 console.log(isFrozen(immutableObject.b.c[4]));
 
-immutableObject.b = null;
+immutableObject.a = null;
 delete immutableObject.b.c;
+
+test('immutable 테스트', () => {
+  expect(immutableObject.a).not.toBe(null);
+  expect(immutableObject.b.c).not.toBe(undefined);
+  console.log('immutable 테스트 통과!');
+});
+

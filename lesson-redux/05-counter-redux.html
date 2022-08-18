@@ -6,57 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Counter with Redux</title>
-    <style>
-      body {
-        margin: 0;
-        background: #f6f3fe;
-      }
-
-      .counter {
-        display: flex;
-        flex-flow: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
-
-      .count {
-        font-size: 14rem;
-        font-weight: 100;
-        letter-spacing: -0.04em;
-        line-height: 1;
-        color: rgba(85, 92, 173, 0.8);
-      }
-
-      .buttonGroup {
-        display: flex;
-        gap: 4px;
-      }
-
-      .buttonGroup button {
-        cursor: pointer;
-        border-radius: 4px;
-        border: 1px solid rgba(85, 92, 173, 0.4);
-        padding: 0.6em 1.5em;
-        background: rgba(255, 255, 255, 0.4);
-        color: rgba(85, 92, 173, 1);
-      }
-
-      .buttonGroup button:hover {
-        border-color: rgba(85, 92, 173, 0.8);
-      }
-      
-      .buttonGroup button:active {
-        background: rgba(255, 255, 255, 0.6);
-      }
-      
-      .buttonGroup button:disabled {
-        cursor: not-allowed;
-        border-color: rgba(85, 92, 173, 0.4);
-        background: rgba(255, 255, 255, 0.2);
-        color: rgba(85, 92, 173, 0.4);
-      }
-    </style>
+    <link rel="stylesheet" href="./05-counter-redux.css" />
     <script src="//unpkg.com/react/umd/react.development.js" crossorigin></script>
     <script src="//unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
     <script src="//unpkg.com/redux/dist/redux.min.js" crossorigin></script>

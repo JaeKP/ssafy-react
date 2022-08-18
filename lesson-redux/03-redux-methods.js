@@ -1,31 +1,27 @@
+/* action types ------------------------------------------------------------- */
+// 액션 타입(상수) 작성
+
+let INCREMENT;
+let DECREMENT;
+
 /* reducer function --------------------------------------------------------- */
 
-const countReducer = (state = 0, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1;
-    default:
-      return state;
-  }
-};
+// 카운터 리듀서 작성
+let initialState = 0;
+const countReducer = (state = initialState, action) => {};
 
 /* Redux Store -------------------------------------------------------------- */
 
-const { createStore } = require('redux');
+// Redux 모듈을 불러와 store 생성
 
-/* store ← reducer  */
-const store = createStore(countReducer);
+const store = {};
 
 /* getState */
 console.log('getState ------------------------------------------');
-console.log(store.getState());
+
 
 /* dispatch */
 console.log('dispatch ------------------------------------------');
-store.dispatch({type: 'INCREMENT'});
-console.log(store.getState());
 
 
 /* subscribe => unsubscribe */
@@ -37,23 +33,29 @@ const buttonVNode = {
 };
 
 function renderButton() {
-  buttonVNode.props.children = store.getState();
+  // store 상태 가져와 buttonVNode의 props.children 값으로 설정
+  buttonVNode.props.children = {};
   console.log(buttonVNode.props.children);
 }
 
-const unsubscribe = store.subscribe(renderButton);
+// store 구독 → 구독 취소 함수 반환
+let unsubscribe;
 
-let count = store.getState();
+// store 상태 가져와 count 값으로 설정
+let count = 0;
+
 const MAX = 10;
-const UNSUBSCRIBE = 7;
+const UNSUBSCRIBED = 7;
 const FPS = 5;
+
 const clearId = setInterval(() => {
-  if (count === UNSUBSCRIBE) {
-    unsubscribe();
+  if (count === UNSUBSCRIBED) {
+    // store 구독 취소 설정
+
     console.log('Redux 스토어 구독 취소');
   }
   
-  store.dispatch({ type: 'INCREMENT' });
+  // store 상태 업데이트
   
   if (++count >= MAX) {
     clearInterval(clearId);

@@ -1,10 +1,17 @@
+/* action types ------------------------------------------------------------- */
+
+const INCREMENT = 'counter/increment';
+const DECREMENT = 'counter/decrement';
+
 /* reducer function --------------------------------------------------------- */
 
-const countReducer = (state = 0, action) => {
+let initialState = 0;
+
+const countReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'INCREMENT':
+    case INCREMENT:
       return state + 1;
-    case 'DECREMENT':
+    case DECREMENT:
       return state - 1;
     default:
       return state;
@@ -13,48 +20,18 @@ const countReducer = (state = 0, action) => {
 
 /* Create Store -------------------------------------------------------------- */
 
-class Store {
-  #state;
-  #reducer = null;
-  #listeners = [];
+// #2. Redux와 유사한 Store 클래스 작성
+class Store {}
 
-  constructor(reducer) {
-    if (!reducer) throw new Error('reducer 함수 설정은 반드시 필요합니다.');
-    this.#reducer = reducer;
-  }
+// #1. Redux.createStore 메서드와 유사한 createStore 함수 작성
+const createStore = () => {};
 
-  getState() {
-    return this.#state;
-  }
-
-  #setState(newState) {
-    this.#state = newState;
-  }
-
-  dispatch(action) {
-    const newState = this.#reducer(this.#state, action);
-    this.#setState(newState);
-    this.#listeners.forEach((listener) => listener?.());
-  }
-
-  subscribe(listener) {
-    this.#listeners.push(listener);
-    return /* unsubscribe */ () => {
-      this.#listeners = this.#listeners.filter(
-        (_listener) => !Object.is(_listener, listener)
-      );
-    };
-  }
-}
-
-const createStore = (reducer) => {
-  const store = new Store(reducer);
-  store.dispatch({ type: '@INIT'});
-  return store;
+// createStore 함수를 사용해 store 생성
+const store = {
+  getState(){},
+  dispatch(){},
+  subscribe(){},
 };
-
-/* store ← reducer  */
-const store = createStore(countReducer);
 
 /* getState */
 console.log('getState ------------------------------------------');
@@ -62,7 +39,7 @@ console.log(store.getState());
 
 /* dispatch */
 console.log('dispatch ------------------------------------------');
-store.dispatch({ type: 'INCREMENT' });
+store.dispatch({ type: INCREMENT });
 console.log(store.getState());
 
 /* subscribe => unsubscribe */
@@ -81,16 +58,18 @@ function renderButton() {
 const unsubscribe = store.subscribe(renderButton);
 
 let count = store.getState();
+
 const MAX = 10;
-const UNSUBSCRIBE = 7;
+const UNSUBSCRIBED = 7;
 const FPS = 5;
+
 const clearId = setInterval(() => {
-  if (count === UNSUBSCRIBE) {
+  if (count === UNSUBSCRIBED) {
     unsubscribe();
     console.log('Redux 스토어 구독 취소');
   }
 
-  store.dispatch({ type: 'INCREMENT' });
+  store.dispatch({ type: INCREMENT });
 
   if (++count >= MAX) {
     clearInterval(clearId);

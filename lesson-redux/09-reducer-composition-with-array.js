@@ -1,19 +1,17 @@
 const { expect } = require('expect');
 const immutable = require('deepfreeze');
 
+/* action types ------------------------------------------------------------- */
+
+const ADD_TODO = 'todoList/add';
+const TOGGLE_TODO = 'todoList/toggle';
+
 /* Reducer Composition with Array ------------------------------------------- */
 
+// todoReducer 코드 작성
 const todoReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'ADD_TODO':
-      return {
-        id: action.id,
-        doit: action.doit,
-        completed: false,
-      };
-    case 'TOGGLE_TODO':
-      if (state.id !== action.id) return state;
-      return { ...state, completed: !state.completed };
+    
     default:
       return state;
   }
@@ -21,22 +19,22 @@ const todoReducer = (state = {}, action) => {
 
 const todoListReducer = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD_TODO:
       return [...state, todoReducer(undefined, action)];
-    case 'TOGGLE_TODO':
+    case TOGGLE_TODO:
       return state.map((todo) => todoReducer(todo, action));
     default:
       return state;
   }
 };
 
-/* -------------------------------------------------------------------------- */
+/* tests -------------------------------------------------------------------- */
 
 const addTodoTest = () => {
   const todoListBefore = [];
 
   const action = {
-    type: 'ADD_TODO',
+    type: ADD_TODO,
     id: 0,
     doit: 'Redux 학습',
   };
@@ -76,7 +74,7 @@ const toggleTodoTest = () => {
   ];
 
   const action = {
-    type: 'TOGGLE_TODO',
+    type: TOGGLE_TODO,
     id: 1,
   };
 

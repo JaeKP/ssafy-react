@@ -5,12 +5,8 @@ const { expect, immutable } = require('./util-test');
 /* -------------------------------------------------------------------------- */
 
 const addCounter = (list, newItem) => {
-  // list.push(newItem);
-  // return list;
-
-  // return list.concat([newItem]);
-
-  return [...list, newItem];
+  list.push(newItem);
+  return list;
 };
 
 const addCounterTest = () => {
@@ -29,11 +25,7 @@ console.log('addCounter 테스트 통과!');
 /* -------------------------------------------------------------------------- */
 
 const removeCounter = (list, removeIndex) => {
-  // return list.splice(removeIndex, 1);
-
-  // return list.slice(0, removeIndex).concat(list.slice(removeIndex + 1));
-
-  return [...list.slice(0, removeIndex), ...list.slice(removeIndex + 1)];
+  return list.splice(removeIndex, 1);
 };
 
 const removeCounterTest = () => {
@@ -52,15 +44,8 @@ console.log('removeCunter 테스트 통과!');
 /* -------------------------------------------------------------------------- */
 
 const incrementCounter = (list, index) => {
-  // list[index]++;
-  // return list;
-
-  // return list
-  //   .slice(0, index)
-  //   .concat(list[index] + 1)
-  //   .concat(list.slice(index + 1));
-
-  return [...list.slice(0, index), list[index] + 1, ...list.slice(index + 1)];
+  list[index]++;
+  return list;
 };
 
 const testIncrementTest = () => {
@@ -81,20 +66,8 @@ console.log('incrementCounter 테스트 통과!');
 /* -------------------------------------------------------------------------- */
 
 const toggleTodo = (todo) => {
-  // todo.completed = !todo.completed;
-  // return todo;
-
-  // return {
-  //   id: todo.id,
-  //   doit: todo.doit,
-  //   completed: !todo.completed,
-  // };
-
-  // return Object.assign({}, todo, {
-  //   completed: !todo.completed,
-  // });
-
-  return { ...todo, completed: !todo.completed };
+  todo.completed = !todo.completed;
+  return todo;
 };
 
 const testToggleTodo = () => {
