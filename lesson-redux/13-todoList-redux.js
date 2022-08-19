@@ -47,9 +47,20 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => {
 
 /* Root Reducer ------------------------------------------------------------- */
 
+// function combineReducers(reducers) {
+//   return function rootReducer(state = {}, action) {
+//     // reducers { state1, state2, ... }
+//     // { key: value } => { reducerPath: reducer }
+//     for (const [reducerPath, reducer] of Object.entries(reducers)) {
+//       state[reducerPath] = reducer(state[reducerPath], action);
+//     }
+//     return state;
+//   }
+// }
+
 const todoListAppReducer = combineReducers({
   todoList: todoListReducer,
-  visibilityFilter,
+  visibilityFilter: visibilityFilter,
 });
 
 /* Store -------------------------------------------------------------------- */

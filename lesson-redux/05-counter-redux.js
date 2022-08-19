@@ -6,7 +6,7 @@ const RESET = 'counter/reset';
 
 /* Reducer ------------------------------------------------------------------ */
 
-let initailCount = 9;
+let initailCount = 1;
 
 const MIN = 0;
 const MAX = 100;
@@ -39,11 +39,11 @@ const countReducer = (state = initailCount, action) => {
 
 /* Redux Store -------------------------------------------------------------- */
 
-const store = Redux.createStore(countReducer);
+const store = Redux.createStore(countReducer, 7);
 
 /* Counter ------------------------------------------------------------------ */
 
-function Counter({ count = 0, step = 1, min = 0, max = 100 }) {
+function Counter({ min, max, step, count }) {
   return (
     <div className="counter">
       <output className="count">{count}</output>
@@ -51,6 +51,7 @@ function Counter({ count = 0, step = 1, min = 0, max = 100 }) {
         <button
           type="button"
           aria-label={`${step} 증가`}
+          title={`${step} 증가`}
           disabled={count >= max}
           onClick={() => store.dispatch({ type: INCREMENT, step, min, max })}
         >
@@ -59,6 +60,7 @@ function Counter({ count = 0, step = 1, min = 0, max = 100 }) {
         <button
           type="button"
           aria-label={`${step} 감소`}
+          title={`${step} 감소`}
           disabled={count <= min}
           onClick={() => store.dispatch({ type: DECREMENT, step, min, max })}
         >
@@ -76,6 +78,13 @@ function Counter({ count = 0, step = 1, min = 0, max = 100 }) {
   );
 }
 
+Counter.defaultProps = {
+  count: 0,
+  step: 1,
+  min: 0,
+  max: 100,
+};
+
 const container = document.getElementById('root');
 const reactDomRoot = ReactDOM.createRoot(container);
 
@@ -83,7 +92,7 @@ const reactDomRoot = ReactDOM.createRoot(container);
 
 function render() {
   let count = store.getState();
-  reactDomRoot.render(<Counter count={count} step={6} min={7} max={77} />);
+  reactDomRoot.render(<Counter count={count} step={3} min={6} max={101} />);
 }
 
 render();

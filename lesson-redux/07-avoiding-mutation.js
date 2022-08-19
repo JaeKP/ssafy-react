@@ -1,12 +1,15 @@
-const { expect, immutable } = require('./util-test');
+// const { expect, immutable } = require('./util-test');
+const { expect } = require('expect');
+const immutable = require('deepfreeze');
 
 /* -------------------------------------------------------------------------- */
 /* Avoiding Array Mutations                                                   */
 /* -------------------------------------------------------------------------- */
 
 const addCounter = (list, newItem) => {
-  list.push(newItem);
-  return list;
+  // list.push(newItem);
+  // return list;
+  return [...list, newItem];
 };
 
 const addCounterTest = () => {
@@ -25,7 +28,8 @@ console.log('addCounter 테스트 통과!');
 /* -------------------------------------------------------------------------- */
 
 const removeCounter = (list, removeIndex) => {
-  return list.splice(removeIndex, 1);
+  // return list.splice(removeIndex, 1);
+  return [...list.slice(0, removeIndex - 1), ...list.slice(removeIndex + 1)];
 };
 
 const removeCounterTest = () => {
@@ -44,8 +48,9 @@ console.log('removeCunter 테스트 통과!');
 /* -------------------------------------------------------------------------- */
 
 const incrementCounter = (list, index) => {
-  list[index]++;
-  return list;
+  // list[index]++;
+  // return list;
+  return list.map((item, i) => (i === index ? item + 1 : item));
 };
 
 const testIncrementTest = () => {
@@ -66,8 +71,13 @@ console.log('incrementCounter 테스트 통과!');
 /* -------------------------------------------------------------------------- */
 
 const toggleTodo = (todo) => {
-  todo.completed = !todo.completed;
-  return todo;
+  // todo.completed = !todo.completed;
+  // return todo;
+
+  return {
+    ...todo,
+    completed: !todo.completed,
+  };
 };
 
 const testToggleTodo = () => {
