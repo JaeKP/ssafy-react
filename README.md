@@ -126,3 +126,17 @@ TypeScript를 사용한다면 유틸리티 함수 또는 클래스, 컴포넌트
 그리고 코드 리뷰를 통해 예측과 달리 수정 상황이 왜 발생한 것인지 분석하고, 다음 설계 과정에서는 같은 경험을 하지 않을 수 있도록 대비할 필요가 있습니다.
 
 </details>
+
+### 질문 6
+
+혹시 오늘 배운 redux의 create 함수 말고 다른 create 함수(createSlice, createAsyncThunk 등..)은 따로 안 다룰 예정인가요?? 혹시 안 다룬다면 오늘 배운 createStore와 creataSlice 의 차이점이 궁금합니다!
+
+<details>
+  <summary>답변 6</summary>
+  <br />
+
+말씀주신 함수는 RTK의 함수 들입니다. 다음 시간에 그 함수들은 다룰 예정입니다. 우선 간단하게 이야기 드려볼께요.
+createStore 함수는 Redux의 Store를 생성하는 함수입니다. 그리고 createSlice 함수는 Redux를 보다
+쉽게 사용할 수 있도록 initialState, reducer, action type/creators를 한 번에 관리할 수 있도록 도와주는 함수입니다. ^^
+
+</details>
