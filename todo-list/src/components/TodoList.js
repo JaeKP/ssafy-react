@@ -1,23 +1,28 @@
 import { css } from '@emotion/css';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleTodo } from 'store/features/todoList';
 import { ReactComponent as CheckOn } from 'assets/checkOn.svg';
 import { ReactComponent as CheckOff } from 'assets/checkOff.svg';
+// import {
+//   showAll,
+//   showActived,
+//   showCompleted,
+// } from 'store/features/visibilityFiler';
 import {
-  SHOW_ALL,
-  SHOW_ACTIVED,
-  SHOW_COMPLETED,
-} from 'store/features/visibilityFiler/actionTypes';
+  showAll,
+  showActived,
+  showCompleted,
+} from 'store/slices/visibilityFilter';
+import { toggleTodo } from 'store/slices/todoList';
 
 const filterTodoList = (todoList, filter) => {
   switch (filter) {
     default:
-    case SHOW_ALL:
+    case showAll.type:
       return todoList;
-    case SHOW_COMPLETED:
-      return todoList.filter((todo) => todo.completed);
-    case SHOW_ACTIVED:
+    case showActived.type:
       return todoList.filter((todo) => !todo.completed);
+    case showCompleted.type:
+      return todoList.filter((todo) => todo.completed);
   }
 };
 

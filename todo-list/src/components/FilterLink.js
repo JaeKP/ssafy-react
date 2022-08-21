@@ -1,6 +1,7 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { setVisibilityFilter } from 'store/features/visibilityFiler';
 import { css } from '@emotion/css';
+import { useSelector, useDispatch } from 'react-redux';
+// import { setVisibilityFilter } from 'store/features/visibilityFiler';
+import { setVisibilityFilter } from 'store/slices/visibilityFilter';
 
 const linkActionStyle = css`
   cursor: not-allowed;
@@ -18,7 +19,13 @@ export const FilterLink = ({ filter, children, ...restProps }) => {
   return currentFilter.includes(filter) ? (
     <span className={linkActionStyle}>{children}</span>
   ) : (
-    <a onClick={() => dispatch(setVisibilityFilter(filter))} {...restProps}>
+    <a
+      onClick={(e) => {
+        e.preventDefault();
+        dispatch(setVisibilityFilter(filter));
+      }}
+      {...restProps}
+    >
       {children}
     </a>
   );

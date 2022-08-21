@@ -1,23 +1,28 @@
 import { css } from '@emotion/css';
 import { FilterLink } from './FilterLink';
+// import {
+//   showAll,
+//   showActived,
+//   showCompleted,
+// } from 'store/features/visibilityFiler';
 import {
-  SHOW_ALL,
-  SHOW_ACTIVED,
-  SHOW_COMPLETED,
-} from 'store/features/visibilityFiler/actionTypes';
+  showAll,
+  showActived,
+  showCompleted,
+} from 'store/slices/visibilityFilter';
 
 export const ShowVisibleFilter = () => {
   return (
     <span className={filterStyle}>
-      <FilterLink href="#all" filter={SHOW_ALL}>
+      <FilterLink href="#all" filter={showAll.type}>
         모두
       </FilterLink>{' '}
       /{' '}
-      <FilterLink href="#actived" filter={SHOW_ACTIVED}>
+      <FilterLink href="#actived" filter={showActived.type}>
         활성 상태만
       </FilterLink>{' '}
       /{' '}
-      <FilterLink href="#completed" filter={SHOW_COMPLETED}>
+      <FilterLink href="#completed" filter={showCompleted.type}>
         완료된 상태만
       </FilterLink>{' '}
       보기

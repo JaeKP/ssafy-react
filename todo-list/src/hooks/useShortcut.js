@@ -1,11 +1,17 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setVisibilityFilter } from 'store/features/visibilityFiler';
+// import {
+//   showAll,
+//   showActived,
+//   showCompleted,
+//   setVisibilityFilter,
+// } from 'store/features/visibilityFiler';
 import {
-  SHOW_ALL,
-  SHOW_ACTIVED,
-  SHOW_COMPLETED,
-} from 'store/features/visibilityFiler/actionTypes';
+  showAll,
+  showActived,
+  showCompleted,
+  setVisibilityFilter,
+} from 'store/slices/visibilityFilter';
 
 export function useShortcut() {
   const dispatch = useDispatch();
@@ -19,13 +25,13 @@ export function useShortcut() {
         switch (e.key) {
           default:
           case '1':
-            changeVisibleFilter(SHOW_ALL);
+            changeVisibleFilter(showAll.type);
             break;
           case '2':
-            changeVisibleFilter(SHOW_ACTIVED);
+            changeVisibleFilter(showActived.type);
             break;
           case '3':
-            changeVisibleFilter(SHOW_COMPLETED);
+            changeVisibleFilter(showCompleted.type);
         }
       }
     };

@@ -1,20 +1,12 @@
-import { SHOW_ACTIVED, SHOW_ALL, SHOW_COMPLETED } from './actionTypes';
+import { createReducer } from '@reduxjs/toolkit';
+import { showAll, showActived, showCompleted } from './actions';
 
-const initialState = SHOW_ALL;
+const initialState = showAll.type;
 
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case SHOW_ALL:
-      state = initialState;
-      break;
-    case SHOW_ACTIVED:
-      state = SHOW_ACTIVED;
-      break;
-    case SHOW_COMPLETED:
-      state = SHOW_COMPLETED;
-      break;
-    default:
-      return state;
-  }
-  return state;
-};
+export const reducer = createReducer(initialState, (builder) => {
+  builder
+    .addCase(showAll.type, (state, action) => action.type)
+    .addCase(showActived.type, (state, action) => action.type)
+    .addCase(showCompleted.type, (state, action) => action.type)
+    .addDefaultCase((state, action) => showAll.type);
+});

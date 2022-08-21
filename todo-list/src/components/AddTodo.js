@@ -1,7 +1,8 @@
 import { useRef } from 'react';
 import { css } from '@emotion/css';
 import { useDispatch } from 'react-redux';
-import { addTodo } from 'store/features/todoList';
+// import { addTodo } from 'store/features/todoList';
+import { addTodo } from 'store/slices/todoList';
 
 export const AddTodo = () => {
   const dispatch = useDispatch();

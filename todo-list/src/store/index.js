@@ -1,16 +1,17 @@
 import { throttle } from 'lodash';
-import { createStore, combineReducers } from 'redux';
-import { reducer as todoList } from './features/todoList';
-import { reducer as visibilityFilter } from './features/visibilityFiler';
-import { devToolsEnhancer } from '@redux-devtools/extension';
+import { configureStore } from '@reduxjs/toolkit';
+// import { reducer as todoList } from './features/todoList';
+// import { reducer as visibilityFilter } from './features/visibilityFiler';
+import todoList from './slices/todoList';
+import visibilityFilter from './slices/visibilityFilter';
 import { loadState, saveState } from 'utils';
 
 /* root reducer ------------------------------------------------------------- */
 
-const rootReducer = combineReducers({
+const reducers = {
   todoList,
   visibilityFilter,
-});
+};
 
 /* store options ------------------------------------------------------------ */
 
@@ -26,11 +27,13 @@ const preloadedState = {
   ],
 };
 
-const ehancer = devToolsEnhancer();
-
 /* store -------------------------------------------------------------------- */
 
-const store = createStore(rootReducer, loadState() ?? preloadedState, ehancer);
+const store = configureStore({
+  reducer: reducers,
+  preloadedState: loadState() ?? preloadedState,
+  devTools: true,
+});
 
 export default store;
 
