@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 const slice = createSlice({
   name: 'todoList',
@@ -20,3 +20,18 @@ const slice = createSlice({
 export const { addTodo, toggleTodo } = slice.actions;
 
 export default slice.reducer;
+
+/* select function ---------------------------------------------------------- */
+
+export const selectTodoList = createSelector(
+  (state) => state.todoList,
+  (todoList) => todoList
+);
+
+export const selectTodoIds = createSelector(selectTodoList, (todoList) =>
+  todoList.map((todo) => todo.id)
+);
+
+export const selectCompletedTodos = createSelector(selectTodoList, (todoList) =>
+  todoList.filter((todo) => todo.completed)
+);

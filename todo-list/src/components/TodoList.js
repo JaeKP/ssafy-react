@@ -11,8 +11,9 @@ import {
   showAll,
   showActived,
   showCompleted,
+  selectVisibilityFilter,
 } from 'store/slices/visibilityFilter';
-import { toggleTodo } from 'store/slices/todoList';
+import { selectTodoList, toggleTodo } from 'store/slices/todoList';
 
 const filterTodoList = (todoList, filter) => {
   switch (filter) {
@@ -27,10 +28,8 @@ const filterTodoList = (todoList, filter) => {
 };
 
 export const TodoList = () => {
-  const { todos, filter } = useSelector(({ todoList, visibilityFilter }) => ({
-    todos: todoList,
-    filter: visibilityFilter,
-  }));
+  const todos = useSelector(selectTodoList);
+  const filter = useSelector(selectVisibilityFilter);
 
   const dispatch = useDispatch();
 

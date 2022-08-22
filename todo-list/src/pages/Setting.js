@@ -4,7 +4,7 @@ import { subscription } from 'store';
 import { unsubscription } from 'store';
 import { loadState, removeState, saveState } from 'utils';
 
-const SAVE_STORAGE_SETTING = 'storage/save-key';
+export const SAVE_STORAGE_SETTING = 'storage/save-key';
 
 function Setting() {
   const [isEnabled, setIsEnabled] = useState(

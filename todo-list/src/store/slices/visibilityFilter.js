@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 
 const slice = createSlice({
   name: 'visibilityFilter',
@@ -31,3 +31,10 @@ export const setVisibilityFilter = (filter) => {
 };
 
 export default slice.reducer;
+
+/* select function ---------------------------------------------------------- */
+
+export const selectVisibilityFilter = createSelector(
+  (state) => state.visibilityFilter,
+  (visibilityFilter) => visibilityFilter
+);

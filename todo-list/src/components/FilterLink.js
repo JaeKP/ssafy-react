@@ -1,7 +1,10 @@
 import { css } from '@emotion/css';
 import { useSelector, useDispatch } from 'react-redux';
 // import { setVisibilityFilter } from 'store/features/visibilityFiler';
-import { setVisibilityFilter } from 'store/slices/visibilityFilter';
+import {
+  selectVisibilityFilter,
+  setVisibilityFilter,
+} from 'store/slices/visibilityFilter';
 
 const linkActionStyle = css`
   cursor: not-allowed;
@@ -13,7 +16,7 @@ const linkActionStyle = css`
 `;
 
 export const FilterLink = ({ filter, children, ...restProps }) => {
-  const currentFilter = useSelector(({ visibilityFilter }) => visibilityFilter);
+  const currentFilter = useSelector(selectVisibilityFilter);
   const dispatch = useDispatch();
 
   return currentFilter.includes(filter) ? (

@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createSelector,
+  createSlice,
+} from '@reduxjs/toolkit';
 
 export const fetchBeverageList = createAsyncThunk(
   'beverage-list/fetch',
@@ -100,3 +104,10 @@ export const useBeverageItem = (id) => {
 
   return { loading, error, item };
 };
+
+/* selector function -------------------------------------------------------- */
+
+export const selectBeverageList = createSelector(
+  (state) => state.beverageList,
+  (beverageList) => beverageList
+);

@@ -6,6 +6,7 @@ import { loadState, saveState } from 'utils';
 import todoList from './slices/todoList';
 import visibilityFilter from './slices/visibilityFilter';
 import beverageList from './slices/beverageList';
+import { SAVE_STORAGE_SETTING } from 'pages/Setting';
 
 /* root reducer ------------------------------------------------------------- */
 
@@ -49,7 +50,7 @@ export const unsubscription = subscription();
 
 /* settings ----------------------------------------------------------------- */
 
-let isSaveLocalStorage = loadState('save-storage') ?? true;
+let isSaveLocalStorage = loadState(SAVE_STORAGE_SETTING) ?? true;
 
 if (!isSaveLocalStorage) {
   unsubscription();
