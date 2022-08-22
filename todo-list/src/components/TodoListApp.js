@@ -5,16 +5,6 @@ import { ShowVisibleFilter } from './ShowVisibleFilter';
 import { TodoList } from './TodoList';
 import { AddTodo } from './AddTodo';
 
-const AppStyles = css`
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 8px;
-  max-width: 480px;
-  margin-top: 100px;
-`;
-
 export const TodoListApp = () => {
   useShortcut();
 
@@ -30,3 +20,15 @@ export const TodoListApp = () => {
     </div>
   );
 };
+
+/* styles ------------------------------------------------------------------- */
+
+const AppStyles = css`
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 480px;
+  margin-top: 12px;
+`;

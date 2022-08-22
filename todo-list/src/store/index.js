@@ -1,16 +1,18 @@
 import { throttle } from 'lodash';
 import { configureStore } from '@reduxjs/toolkit';
+import { loadState, saveState } from 'utils';
 // import { reducer as todoList } from './features/todoList';
 // import { reducer as visibilityFilter } from './features/visibilityFiler';
 import todoList from './slices/todoList';
 import visibilityFilter from './slices/visibilityFilter';
-import { loadState, saveState } from 'utils';
+import beverageList from './slices/beverageList';
 
 /* root reducer ------------------------------------------------------------- */
 
 const reducers = {
   todoList,
   visibilityFilter,
+  beverageList,
 };
 
 /* store options ------------------------------------------------------------ */
@@ -39,6 +41,16 @@ export default store;
 
 /* subscription ------------------------------------------------------------- */
 
-export const unsubscribe = store.subscribe(
-  throttle(() => saveState(store.getState()), 1000)
-);
+export const subscription = () => {
+  return store.subscribe(throttle(() => saveState(store.getState()), 1000));
+};
+
+export const unsubscription = subscription();
+
+/* settings ----------------------------------------------------------------- */
+
+let isSaveLocalStorage = loadState('save-storage') ?? true;
+
+if (!isSaveLocalStorage) {
+  unsubscription();
+}

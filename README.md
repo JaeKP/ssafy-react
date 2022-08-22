@@ -9,5 +9,3 @@
 - createReducer
 - createSlice
 - createAsyncThunk
-- createEntityAdapter
-- createSelector
