@@ -1,5 +1,5 @@
 {
-  "name": "todo-list",
+  "name": "practice-rtk",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,13 +23,13 @@
     "react-router-dom": "6.3.0",
     "redux": "4.2.0",
     "uuid": "8.3.2",
-    "web-vitals": "2.1.4"
+    "web-vitals": "3.0.0"
   },
   "devDependencies": {
     "@redux-devtools/extension": "3.2.3",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.3.0",
-    "@testing-library/user-event": "13.5.0",
+    "@testing-library/user-event": "14.4.3",
     "cross-env": "7.0.3",
     "json-server": "0.17.0",
     "npm-run-all": "4.1.5",
