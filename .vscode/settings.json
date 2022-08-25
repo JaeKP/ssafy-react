@@ -7,5 +7,9 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": true
+  },
+  "path-intellisense.extensionOnImport": true,
+  "path-intellisense.mappings": {
+    "/": "${workspaceRoot}/todo-list/src"
   }
 }
