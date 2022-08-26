@@ -1,12 +1,12 @@
 import { throttle } from 'lodash';
 import { configureStore } from '@reduxjs/toolkit';
 import { loadState, saveState } from 'utils';
-// import { reducer as todoList } from './features/todoList';
-// import { reducer as visibilityFilter } from './features/visibilityFiler';
 import todoList from './slices/todoList';
 import visibilityFilter from './slices/visibilityFilter';
 import beverageList from './slices/beverageList';
 import { SAVE_STORAGE_SETTING } from 'pages/Setting';
+import { contactsApi } from 'services/contactsApi';
+// import { setupListeners } from '@reduxjs/toolkit/dist/query';
 
 /* root reducer ------------------------------------------------------------- */
 
@@ -14,6 +14,7 @@ const reducers = {
   todoList,
   visibilityFilter,
   beverageList,
+  [contactsApi.reducerPath]: contactsApi.reducer,
 };
 
 /* store options ------------------------------------------------------------ */
@@ -36,9 +37,13 @@ const store = configureStore({
   reducer: reducers,
   preloadedState: loadState() ?? preloadedState,
   devTools: true,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(contactsApi.middleware),
 });
 
 export default store;
+
+// setupListeners(store.dispatch);
 
 /* subscription ------------------------------------------------------------- */
 

@@ -323,22 +323,22 @@
   ],
   "contacts": [
     {
-      "id": "1555abe4-6962-4757-94d1-caf40394e1de",
       "name": "지연아",
       "email": "jeeya@gmail.com",
-      "contact": "010-2043-8412"
+      "contact": "010-2043-8412",
+      "id": "aKEov6p"
     },
     {
-      "id": "eab6b32b-6061-4ac8-8198-2614bb220d95",
+      "id": "mUInc9u",
       "name": "박인호",
       "email": "park29012@naver.com",
       "contact": "010-7739-1632"
     },
     {
-      "id": "277bdbe2-dd72-4723-b79c-eac550a5322b",
       "name": "이수현",
       "email": "leesuhyun97@nate.com",
-      "contact": "010-8109-0265"
+      "contact": "010-8109-0262",
+      "id": "oSGie2k"
     }
   ]
 }
