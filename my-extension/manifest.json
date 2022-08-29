@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "토마토 타이머",
+  "version": "0.0.1",
+  "description": "정해진 시간에 알림을 제공하는 타이머 익스텐션 (사용자 정의 옵션 설정 / 재생, 정지, 초기화 기능 제공)",
+  "icons": {
+    "16": "assets/timer.png",
+    "32": "assets/timer.png",
+    "48": "assets/timer.png",
+    "128": "assets/timer.png"
+  },
+  "action": {
+    "default_icons": {
+      "16": "assets/timer.png",
+      "24": "assets/timer.png",
+      "32": "assets/timer.png"
+    },
+    "default_title": "토마토 타이머",
+    "default_popup": "popup/index.html"
+  },
+  "options_page": "options/index.html",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

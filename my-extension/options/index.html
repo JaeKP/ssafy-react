@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>옵션 설정 ← 토마토 타이머</title>
+  <meta name="description" content="토마토 타이머 사용자 정의 옵션을 설정합니다." />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  
+  <div class="app">
+    <h1><img src="../assets/timer.png" alt="" /> 토마토 타이머 옵션 설정</h1>
+    <form id="optionsForm">
+      <div class="control">
+        <label for="name">사용자 이름</label>
+        <input id="name" name="name" type="text" placeholder="홍길동" />
+      </div>
+      <div class="control">
+        <label for="interval">알림 인터벌(초)</label>
+        <input id="interval" name="interval" type="number" placeholder="1000" />
+      </div>
+      <button type="button" class="button--save">저장</button>
+    </form>
+    
+  </div>
+
+</body>
+</html>

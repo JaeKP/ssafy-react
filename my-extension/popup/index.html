@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>토마토 타이머</title>
+  <meta name="description" content="정해진 시간에 알림을 제공하는 타이머 익스텐션 (사용자 정의 옵션 설정 / 재생, 정지, 초기화 기능 제공)" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  
+<div class="app">
+  <h1><img src="../assets/timer.png" alt="" /> 토마토 타이머</h1>
+  <p>정해진 시간에 알림을 제공하는 타이머 익스텐션</p>
+  <ul>
+    <li>사용자 정의 옵션 설정</li>
+    <li>재생, 정지, 초기화 기능</li>
+  </ul>
+
+  <div class="info">
+    <div class="userName">
+      <h2>사용자</h2>
+      <p></p>
+    </div>
+    <div class="timeZone">
+      <h2>현재 시각</h2>
+      <time></time>
+    </div>
+    <div class="timer">
+      <h2>타이머</h2>
+      <time></time>
+    </div>
+  </div>
+
+  <div class="buttonGroup">
+    <button class="button button--start" type="button">타이머 시작</button>
+    <button class="button button--stop" type="button">타이머 정지</button>
+    <button class="button button--reset" type="button">타이머 초기화</button>
+  </div>
+</div>
+
+</body>
+</html>
