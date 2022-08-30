@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "version": "0.0.1",
+  "name": "Chrome 익스텐션 with React",
+  "description": "React를 사용해 Chrome 익스텐션 만들기",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_icons": {
+      "16": "icon.png",
+      "24": "icon.png",
+      "36": "icon.png"
+    },
+    "default_title": "Chrome 익스텐션 with React",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  }
+}

@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+}
+
+.app {
+  width: 400px;
+  min-height: 100px;
+  padding: 20px;
+}
+
+.app h1 {
+  margin-top: 0;
+}
