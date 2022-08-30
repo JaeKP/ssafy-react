@@ -1,0 +1,12 @@
+{
+  // Extensions.json 형식에 대한 문서
+  // 참고: https://go.microsoft.com/fwlink/?LinkId=827846
+  "recommendations": [
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "chrisbibby.hide-node-modules",
+    "donjayamanne.githistory",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ]
+}

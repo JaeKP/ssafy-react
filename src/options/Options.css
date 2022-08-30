@@ -1,0 +1,32 @@
+@import "@/styles/global.css";
+
+.app {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: calc(100vh - 140px);
+  padding: 140px 20px 0;
+}
+
+.app h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--primary-400);
+}
+
+.app p {
+  margin: 0;
+  color: var(--gray-600);
+}
+
+.app img {
+  position: fixed;
+  top: 120px;
+  left: 50%;
+  translate: -50% 100%;
+  scale: 1.2;
+  width: auto;
+  height: 120px;
+}
