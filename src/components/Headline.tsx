@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 interface HeadlineProps<T extends React.ElementType> {
   as?: T;
   children: React.ReactNode;

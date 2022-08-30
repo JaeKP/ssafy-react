@@ -18,4 +18,9 @@ plugins:
   - react
   - jsx-a11y
   - '@typescript-eslint'
-rules: { '@typescript-eslint/no-var-requires': off }
+rules:
+  {
+    '@typescript-eslint/no-var-requires': off,
+    react/self-closing-comp: warn,
+    react/prop-types: off,
+  }

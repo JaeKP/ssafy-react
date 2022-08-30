@@ -1,0 +1,22 @@
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  cursor: pointer;
+  margin: 4px;
+  border-radius: 6px;
+  border: 0;
+  padding: 0.45em;
+  background: transparent;
+  line-height: 1;
+}
+
+.button:hover {
+  opacity: 1;
+  background: var(--primary-50);
+}
+
+.button svg {
+  pointer-events: none;
+}
