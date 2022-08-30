@@ -3,7 +3,7 @@ const commonConfig = require('./common');
 
 const devConfig = merge(commonConfig, {
   mode: 'development',
-  devtool: 'eval-cheap-source-map',
+  devtool: 'cheap-module-source-map',
 });
 
 module.exports = devConfig;

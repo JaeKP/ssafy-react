@@ -1,13 +1,35 @@
-body {
-  margin: 0;
-}
+@import url('@/styles/global.css');
 
 .app {
-  width: 400px;
-  min-height: 100px;
-  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 480px;
+  min-height: 204px;
+  padding: 32px 20px 0;
 }
 
 .app h1 {
-  margin-top: 0;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-400);
+}
+
+.app p {
+  margin: 0;
+  color: var(--gray-600);
+}
+
+.app img {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  translate: -50% 50%;
+  scale: 1.2;
+  width: auto;
+  height: 240px;
+  opacity: 0.4;
+  animation: rotation 20s linear infinite alternate-reverse;
 }

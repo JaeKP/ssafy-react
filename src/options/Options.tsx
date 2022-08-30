@@ -1,13 +1,14 @@
 import './Options.css';
 import { createRoot } from 'react-dom/client';
 import { Headline } from '@/components/Headline';
+import iconPath from '@/static/icon.png';
 
 function Options(): JSX.Element {
   return (
     <div className="app">
-      <Headline as="h1">
-        옵션 ← Chrome 익스텐션 보일러플레이트 with React
-      </Headline>
+      <Headline as="h1">Chrome 익스텐션 with React</Headline>
+      <p>익스텐션 옵션을 구성합니다.</p>
+      <img src={iconPath} alt="React" />
     </div>
   );
 }

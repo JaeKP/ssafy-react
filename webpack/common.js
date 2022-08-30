@@ -1,6 +1,6 @@
 const { setPath } = require('./utils');
-const { plugins, cssMinimizer } = require('./plugins');
 const { loaders } = require('./loaders');
+const { plugins, cssMinimizer } = require('./plugins');
 
 const commonConfig = {
   target: 'web',
